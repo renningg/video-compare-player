@@ -1,14 +1,23 @@
 {
   "name": "video-compare-player",
   "version": "0.1.0",
-  "description": "A dependency-free, frame-synchronized video comparison player for the web.",
+  "description": "A dependency-free video comparison player for split-screen before/after review.",
   "keywords": [
-    "video",
-    "compare",
-    "before-after",
-    "upscale",
-    "super-resolution",
-    "frame-sync"
+    "video comparison",
+    "video compare",
+    "before after",
+    "before-and-after",
+    "split screen",
+    "split view",
+    "comparison slider",
+    "slider",
+    "side by side",
+    "video player",
+    "web component",
+    "custom element",
+    "esm",
+    "react",
+    "vue"
   ],
   "type": "module",
   "main": "./dist/index.cjs",
@@ -52,5 +61,13 @@
   },
   "sideEffects": [
     "./dist/style.css"
-  ]
+  ],
+  "homepage": "https://renningg.github.io/video-compare-player/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/renningg/video-compare-player.git"
+  },
+  "bugs": {
+    "url": "https://github.com/renningg/video-compare-player/issues"
+  }
 }

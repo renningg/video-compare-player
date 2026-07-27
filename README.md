@@ -2,7 +2,7 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-A framework-agnostic video quality comparison player with zero runtime dependencies. The enhanced video is the only master clock and audio source; the original video is a muted follower layer. It is designed for before/after comparisons such as upscaling, restoration, color grading, and compression.
+A framework-agnostic, zero-runtime-dependency video comparison player for split-screen before/after review. The enhanced video is the only master clock and audio source; the original video is a muted follower layer. It is designed for upscaling, restoration, color grading, compression, side-by-side QA, and other comparison workflows.
 
 - Native DOM: no React, Vue, Tailwind, icon library, or player SDK dependency
 - Built-in SVG icons, standalone CSS, controls, and accessible labels
