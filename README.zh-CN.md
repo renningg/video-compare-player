@@ -61,13 +61,12 @@ import "video-compare-player/style.css";
 
 ## 在线 demo
 
-可以从配套的消费者测试工作区发布 GitHub Pages 演示站。发布后，站点根路径可用于浏览器 global 版本，另外还可以提供未压缩版和原生 ESM 版页面。
+这个仓库会通过 GitHub Pages 发布一个在线演示站。根路径打开交互播放器示例，另有一个页面展示 Web Component 示例。
 
-典型的 Pages 地址如下：
+- [在线 demo](https://renningg.github.io/video-compare-player/)
+- [Web Component demo](https://renningg.github.io/video-compare-player/custom-element.html)
 
-- `https://<owner>.github.io/<repo>/`
-- `https://<owner>.github.io/<repo>/unminified.html`
-- `https://<owner>.github.io/<repo>/esm.html`
+GitHub Pages 会在推送到 `main` 后由 Actions 自动部署。
 
 ## 播放器 API
 

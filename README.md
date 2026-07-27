@@ -61,13 +61,12 @@ import "video-compare-player/style.css";
 
 ## Live demo
 
-A GitHub Pages demo can be published from the companion consumer workspace. After deployment, the site root can serve the browser-global build, with extra pages for the unminified and native ESM variants.
+A GitHub Pages demo is published from this repository. The root page opens the interactive player demo, and a separate page shows the custom-element example.
 
-Typical Pages URLs look like this:
+- [Demo](https://renningg.github.io/video-compare-player/)
+- [Custom element demo](https://renningg.github.io/video-compare-player/custom-element.html)
 
-- `https://<owner>.github.io/<repo>/`
-- `https://<owner>.github.io/<repo>/unminified.html`
-- `https://<owner>.github.io/<repo>/esm.html`
+GitHub Pages is deployed by Actions after a push to `main`.
 
 ## Player API
 

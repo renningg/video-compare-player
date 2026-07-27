@@ -36,6 +36,7 @@
   },
   "scripts": {
     "build": "node ./scripts/build.mjs",
+    "build:pages": "node ./scripts/build-pages.mjs",
     "check": "tsc --noEmit -p tsconfig.json",
     "test": "npm run build && tsc -p ./tests/fixtures/nodenext/tsconfig.json && node --test ./tests/*.test.mjs",
     "test:browser": "npm run build && node ./tests/browser/launch.mjs",
