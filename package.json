@@ -1,0 +1,55 @@
+{
+  "name": "video-compare-player",
+  "version": "0.1.0",
+  "description": "A dependency-free, frame-synchronized video comparison player for the web.",
+  "keywords": [
+    "video",
+    "compare",
+    "before-after",
+    "upscale",
+    "super-resolution",
+    "frame-sync"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
+  "unpkg": "./dist/index.global.min.js",
+  "jsdelivr": "./dist/index.global.min.js",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    },
+    "./style.css": "./dist/style.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "README.zh-CN.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "node ./scripts/build.mjs",
+    "check": "tsc --noEmit -p tsconfig.json",
+    "test": "npm run build && tsc -p ./tests/fixtures/nodenext/tsconfig.json && node --test ./tests/*.test.mjs",
+    "test:browser": "npm run build && node ./tests/browser/launch.mjs",
+    "pack:check": "npm pack --dry-run",
+    "prepack": "npm run build",
+    "format": "prettier --write \"src/**/*.{ts,css}\" \"scripts/**/*.mjs\" \"tests/**/*.{ts,mjs,html,json}\" \"examples/**/*.html\" \"*.{json,md}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,css}\" \"scripts/**/*.mjs\" \"tests/**/*.{ts,mjs,html,json}\" \"examples/**/*.html\" \"*.{json,md}\""
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.9",
+    "prettier": "^3.9.6",
+    "typescript": "^5.9.2"
+  },
+  "sideEffects": [
+    "./dist/style.css"
+  ]
+}

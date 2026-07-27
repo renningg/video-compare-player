@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src-elem 'self' 'nonce-vcp-browser-test'; style-src-attr 'unsafe-inline'; media-src 'self' data: blob:; img-src 'self' data: blob:"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Video Compare Player browser lifecycle tests</title>
+    <link rel="stylesheet" href="../../dist/style.css" />
+  </head>
+  <body>
+    <main id="test-root"></main>
+    <pre id="results">Browser tests are running…</pre>
+    <script type="module" src="./fixture.mjs"></script>
+  </body>
+</html>

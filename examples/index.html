@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Video Compare Player Demo</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: Inter, system-ui, sans-serif;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: #111216;
+        color: #f5f7ff;
+      }
+      main {
+        width: min(100% - 32px, 1080px);
+        margin: 40px auto;
+      }
+      h1 {
+        margin: 0 0 8px;
+        font-size: 26px;
+      }
+      p {
+        margin: 0 0 24px;
+        color: rgba(245, 247, 255, 0.65);
+      }
+      #player {
+        width: 100%;
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 16px;
+      }
+      .actions button {
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 9px;
+        padding: 9px 14px;
+        color: inherit;
+        background: rgba(255, 255, 255, 0.08);
+        cursor: pointer;
+      }
+      .actions button:hover {
+        background: rgba(255, 255, 255, 0.14);
+      }
+      #status {
+        margin-top: 12px;
+        min-height: 20px;
+        color: rgba(245, 247, 255, 0.72);
+        font-size: 13px;
+      }
+      .demo-badge {
+        padding: 8px 10px;
+        border-radius: 9px;
+        background: rgba(118, 87, 255, 0.72);
+        font-size: 12px;
+        line-height: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Video Compare Player</h1>
+      <p>
+        拖动白线进行对比；暂停、继续或切换素材时，分割线和主视频 DOM
+        都不会重建。
+      </p>
+      <div id="player"></div>
+      <div class="actions">
+        <button id="toggle">暂停 / 继续</button>
+        <button id="flower">切换 Flower</button>
+        <button id="sintel">切换 Sintel</button>
+        <button id="center">分割线归中</button>
+      </div>
+      <div id="status" aria-live="polite"></div>
+    </main>
+
+    <script src="../dist/index.global.js"></script>
+    <script>
+      const sources = {
+        flower:
+          "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+        sintel: "https://media.w3.org/2010/05/sintel/trailer.mp4",
+      };
+      const status = document.querySelector("#status");
+      const player = VideoCompare.createVideoComparePlayer("#player", {
+        enhancedSrc: sources.flower,
+        originalSrc: sources.flower,
+        muted: true,
+        loop: true,
+        mode: "compare",
+        labels: {
+          enhancedMode: "只看超分效果",
+          compareMode: "对比原视频与超分效果",
+          original: "原视频",
+          enhanced: "超分效果",
+          dragHandle: "拖动分割线对比画质",
+        },
+        styles: {
+          enhancedVideo: { filter: "contrast(1.08) saturate(1.22)" },
+        },
+        topLeftSlot(host, { signal }) {
+          const badge = document.createElement("span");
+          badge.className = "demo-badge";
+          badge.textContent = "零运行时依赖";
+          host.append(badge);
+          signal.addEventListener("abort", () => badge.remove(), {
+            once: true,
+          });
+        },
+        onStateChange({ state }) {
+          status.textContent = `播放状态：${state}`;
+        },
+        onError({ source, error }) {
+          status.textContent = `${source}：${error.message}`;
+        },
+      });
+
+      document.querySelector("#toggle").addEventListener("click", () => {
+        player.toggle().catch(() => undefined);
+      });
+      document
+        .querySelector("#center")
+        .addEventListener("click", () => player.setPosition(50));
+
+      const switchTo = async (name) => {
+        status.textContent = `正在切换到 ${name}…`;
+        const result = await player.setSources(
+          { enhancedSrc: sources[name], originalSrc: sources[name] },
+          { playback: "preserve", time: "reset", divider: "preserve" },
+        );
+        status.textContent = `切换结果：${result.status}`;
+      };
+      document
+        .querySelector("#flower")
+        .addEventListener("click", () => switchTo("flower"));
+      document
+        .querySelector("#sintel")
+        .addEventListener("click", () => switchTo("sintel"));
+      window.player = player;
+    </script>
+  </body>
+</html>
