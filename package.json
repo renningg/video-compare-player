@@ -1,6 +1,6 @@
 {
   "name": "video-compare-player",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A dependency-free video comparison player for split-screen before/after review.",
   "keywords": [
     "video comparison",
