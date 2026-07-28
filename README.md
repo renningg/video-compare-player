@@ -2,20 +2,25 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-A framework-agnostic, zero-runtime-dependency video comparison player for split-screen before/after review. The enhanced video is the only master clock and audio source; the original video is a muted follower layer. It is designed for upscaling, restoration, color grading, compression, side-by-side QA, and other comparison workflows.
+[![npm version](https://img.shields.io/npm/v/video-compare-player)](https://www.npmjs.com/package/video-compare-player)
+[![gzip size](https://img.shields.io/bundlephobia/minzip/video-compare-player)](https://bundlephobia.com/package/video-compare-player)
+[![license](https://img.shields.io/github/license/renningg/video-compare-player)](./LICENSE)
+
+A framework-agnostic video comparison player with zero runtime dependencies. It ships ESM, CommonJS, a browser global build, and a Web Component. The browser global minified build is about 85 KB, or 21.7 KB gzip.
 
 - Native DOM: no React, Vue, Tailwind, icon library, or player SDK dependency
 - Built-in SVG icons, standalone CSS, controls, and accessible labels
-- ESM, CommonJS, browser IIFE global, and Web Component builds
 - Complete TypeScript declarations
 - Custom labels, icons, theme, classes, inline styles, attributes, and slots
 - Robust handling of pause, resume, seek, loop, buffering, and rapid source changes
 
-## Installation and entry points
+## Install
 
 ```bash
 npm install video-compare-player
 ```
+
+## Import
 
 ESM:
 
@@ -40,7 +45,7 @@ CommonJS:
 const { createVideoComparePlayer } = require("video-compare-player");
 ```
 
-Use it directly in a browser. The IIFE exposes the `VideoCompare` global:
+Browser global:
 
 ```html
 <div id="player"></div>
@@ -53,18 +58,16 @@ Use it directly in a browser. The IIFE exposes the `VideoCompare` global:
 </script>
 ```
 
-Import the static stylesheet separately when needed:
+Styles:
 
 ```ts
 import "video-compare-player/style.css";
 ```
 
-## Live demo
+## Demo
 
-A GitHub Pages demo is published from this repository. The root page opens the interactive player demo, and a separate page shows the custom-element example.
-
-- [Demo](https://renningg.github.io/video-compare-player/)
-- [Custom element demo](https://renningg.github.io/video-compare-player/custom-element.html)
+- [Live demo](https://renningg.github.io/video-compare-player/)
+- [Web Component demo](https://renningg.github.io/video-compare-player/custom-element.html)
 
 GitHub Pages is deployed by Actions after a push to `main`.
 
@@ -326,7 +329,7 @@ Build outputs:
 
 - `dist/index.js`: ESM
 - `dist/index.cjs`: CommonJS
-- `dist/index.global.js` / `index.global.min.js`: browser global `VideoCompare`
+- `dist/index.global.min.js`: browser global `VideoCompare`
 - `dist/types/`: TypeScript declarations
 - `dist/style.css`: standalone stylesheet
 
@@ -337,3 +340,7 @@ npm run build
 python3 -m http.server 4173
 # Open http://localhost:4173/examples/
 ```
+
+## License
+
+MIT. See [LICENSE](./LICENSE).

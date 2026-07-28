@@ -2,20 +2,25 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-框架无关、零运行时依赖的视频画质对比播放器，适合 split-screen、before/after 这类对照场景。超分视频是唯一主时钟和唯一声音源，原视频作为静音跟随层，适合超分、修复、调色、压缩前后等对比场景。
+[![npm version](https://img.shields.io/npm/v/video-compare-player)](https://www.npmjs.com/package/video-compare-player)
+[![gzip size](https://img.shields.io/bundlephobia/minzip/video-compare-player)](https://bundlephobia.com/package/video-compare-player)
+[![license](https://img.shields.io/github/license/renningg/video-compare-player)](./LICENSE)
+
+框架无关、零运行时依赖的视频对比播放器。它同时提供 ESM、CommonJS、浏览器 global 版本和 Web Component。浏览器 global 的 minified 版本约 85 KB，gzip 后约 21.7 KB。
 
 - 原生 DOM，不依赖 React、Vue、Tailwind、图标库或播放器 SDK
 - 内置 SVG 图标、独立 CSS、控制栏和可访问性文案
-- 同时提供 ESM、CommonJS、浏览器 IIFE global 和 Web Component
 - 完整 TypeScript 声明
 - 支持自定义文案、图标、主题、class、inline style、attributes 和 slot
-- 安全处理暂停、继续、seek、loop、buffer 和快速切源
+- 能稳定处理暂停、继续、seek、loop、buffer 和快速切源
 
-## 安装和入口
+## 安装
 
 ```bash
 npm install video-compare-player
 ```
+
+## 引入
 
 ESM：
 
@@ -40,7 +45,7 @@ CommonJS：
 const { createVideoComparePlayer } = require("video-compare-player");
 ```
 
-浏览器直接引入，导出全局变量 `VideoCompare`：
+浏览器 global：
 
 ```html
 <div id="player"></div>
@@ -53,15 +58,13 @@ const { createVideoComparePlayer } = require("video-compare-player");
 </script>
 ```
 
-可单独引入静态样式：
+样式：
 
 ```ts
 import "video-compare-player/style.css";
 ```
 
-## 在线 demo
-
-这个仓库会通过 GitHub Pages 发布一个在线演示站。根路径打开交互播放器示例，另有一个页面展示 Web Component 示例。
+## Demo
 
 - [在线 demo](https://renningg.github.io/video-compare-player/)
 - [Web Component demo](https://renningg.github.io/video-compare-player/custom-element.html)
@@ -326,7 +329,7 @@ npm run pack:check
 
 - `dist/index.js`：ESM
 - `dist/index.cjs`：CommonJS
-- `dist/index.global.js` / `index.global.min.js`：浏览器 global `VideoCompare`
+- `dist/index.global.min.js`：浏览器 global `VideoCompare`
 - `dist/types/`：类型声明
 - `dist/style.css`：独立样式
 
@@ -337,3 +340,7 @@ npm run build
 python3 -m http.server 4173
 # 打开 http://localhost:4173/examples/
 ```
+
+## 许可证
+
+MIT。见 [LICENSE](./LICENSE)。

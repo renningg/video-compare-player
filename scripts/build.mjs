@@ -54,13 +54,6 @@ await Promise.all([
     ...shared,
     format: "iife",
     globalName: "VideoCompare",
-    outfile: resolve(distDir, "index.global.js"),
-    sourcemap: true,
-  }),
-  build({
-    ...shared,
-    format: "iife",
-    globalName: "VideoCompare",
     outfile: resolve(distDir, "index.global.min.js"),
     minify: true,
   }),
