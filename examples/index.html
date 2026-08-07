@@ -52,23 +52,11 @@
         min-height: 20px;
         color: rgba(245, 247, 255, 0.72);
         font-size: 13px;
-      }
-      .demo-badge {
-        padding: 8px 10px;
-        border-radius: 9px;
-        background: rgba(118, 87, 255, 0.72);
-        font-size: 12px;
-        line-height: 18px;
-      }
-    </style>
+      }    </style>
   </head>
   <body>
     <main>
       <h1>Video Compare Player</h1>
-      <p>
-        拖动白线进行对比；暂停、继续或切换素材时，分割线和主视频 DOM
-        都不会重建。
-      </p>
       <div id="player"></div>
       <div class="actions">
         <button id="toggle">暂停 / 继续</button>
@@ -102,17 +90,7 @@
         },
         styles: {
           enhancedVideo: { filter: "contrast(1.08) saturate(1.22)" },
-        },
-        topLeftSlot(host, { signal }) {
-          const badge = document.createElement("span");
-          badge.className = "demo-badge";
-          badge.textContent = "零运行时依赖";
-          host.append(badge);
-          signal.addEventListener("abort", () => badge.remove(), {
-            once: true,
-          });
-        },
-        onStateChange({ state }) {
+        },        onStateChange({ state }) {
           status.textContent = `播放状态：${state}`;
         },
         onError({ source, error }) {
