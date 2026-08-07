@@ -71,6 +71,10 @@ import "video-compare-player/style.css";
 
 GitHub Pages 会在推送到 `main` 后由 Actions 自动部署。
 
+## 截图
+
+![在线 demo 截图](https://raw.githubusercontent.com/renningg/video-compare-player/main/docs/demo-screenshot.png)
+
 ## 播放器 API
 
 ```ts

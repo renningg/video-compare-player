@@ -71,6 +71,10 @@ import "video-compare-player/style.css";
 
 GitHub Pages is deployed by Actions after a push to `main`.
 
+## Screenshot
+
+![Live demo screenshot](https://raw.githubusercontent.com/renningg/video-compare-player/main/docs/demo-screenshot.png)
+
 ## Player API
 
 ```ts
