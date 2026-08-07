@@ -13,7 +13,7 @@ await cp(distDir, resolve(pagesDir, "dist"), { recursive: true });
 
 for (const fileName of ["index.html", "custom-element.html"]) {
   const source = await readFile(resolve(examplesDir, fileName), "utf8");
-  const rewritten = source.replaceAll("../dist/", "./dist/");
+  const rewritten = source.replaceAll("../dist/index.global.js", "./dist/index.global.min.js").replaceAll("../dist/", "./dist/");
   await writeFile(resolve(pagesDir, fileName), rewritten);
 }
 
